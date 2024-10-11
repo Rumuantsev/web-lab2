@@ -23,8 +23,29 @@ function Task(title, about, id, onDelete){
         let deleteButton = element.querySelector('#deleteButton');
 
         deleteButton.addEventListener('click', () => {
-            onDelete();
+            _showDeleteModal(onDelete);;
         });
+    }
+
+    function _showDeleteModal(onDelete) {
+        const modal = document.getElementById('deleteModal');
+        const confirmDelete = document.getElementById('yesButton');
+        const cancelDelete = document.getElementById('noButton');
+    
+        // Показать модальное окно
+        modal.style.display = 'flex';
+    
+        // Обработчик подтверждения удаления
+        confirmDelete.onclick = function() {
+            onDelete();
+            modal.style.display = 'none'; // Скрыть модальное окно
+        };
+    
+        // Обработчик отмены удаления
+        cancelDelete.onclick = function() {
+            modal.style.display = 'none'; // Скрыть модальное окно
+        };
+
     }
 
     function init(){
