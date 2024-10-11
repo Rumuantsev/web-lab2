@@ -5,7 +5,6 @@
   width: 100%;
   margin: auto;
   margin-top: 16px;
-  border: 1px white solid;
 }
 .task_container .task_content {
   display: flex;
@@ -17,28 +16,27 @@
   min-height: 72px;
   height: auto;
   background: #242320;
-  padding: 16px;
+  padding: 8px 16px;
 }
 .task_container .task_content .task_text {
-  border: rgb(219, 13, 13) solid;
+  transition: width 0.3s ease-in-out;
   margin-top: 0px;
 }
 .task_container .task_content .task_text h3 {
-  margin-top: 0px;
+  height: auto;
+  color: #F0E3CA;
+  font-size: 22px;
   width: 100%;
-  border: white solid;
+  margin: 0px;
 }
 .task_container .task_content .task_text p {
-  margin-top: 0px;
-  border: white solid;
+  color: #F0E3CA;
+  font-size: 14px;
   width: 100%; /* Ширина 100% от родительского блока */
   height: auto; /* Высота адаптивная, подстраивается под содержимое */
-  word-wrap: break-word; /* Разбиваем длинные слова для корректного переноса */
   overflow-wrap: break-word; /* Аналогично для поддержки в разных браузерах */
   margin: 0;
-}
-.task_container .task_content .task_button {
-  border: yellow solid;
+  margin-top: 5px;
 }
 .task_container .task_content .task_button button {
   border: 2px #A35709 solid;
@@ -55,31 +53,45 @@
   background: #23221F;
 }
 
-@media (max-width: 2560px) {
-  .task_text {
-    width: 90%;
-  }
+/* Скрытое модальное окно */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Скрываем окно по умолчанию */
+  justify-content: center;
+  align-items: center;
 }
-@media (max-width: 1024px) {
-  .task_text {
-    width: 80%;
-  }
+
+.modal.show { /* Класс для отображения модального окна */
+  display: flex;
 }
-@media (max-width: 768px) {
-  .task_text {
-    width: 80%;
-  }
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
 }
-@media (max-width: 425px) {
-  .task_text {
-    width: 75%;
-  }
+
+.modal-buttons {
+  margin-top: 20px;
 }
-@media (max-width: 320px) {
-  .task_text {
-    width: 75%;
-  }
+
+.modal-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
 }
+
+* {
+  font-family: Roboto;
+}
+
 body {
   background: #1B1A17;
 }
