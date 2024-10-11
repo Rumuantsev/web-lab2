@@ -1,0 +1,58 @@
+.task_container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    margin-top: 16px;
+    border: 1px white solid;
+    .task_content{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px #A35709 solid;
+        border-radius: 8px;
+        min-height: 72px;
+        height: auto;
+        background: #242320;
+        padding: 16px;
+        .task_text{
+            border: rgb(219, 13, 13) solid;
+            margin-top: 0px;
+            transition: width 0.3s ease-in-out;
+            h3{
+                margin-top: 0px;
+                width: 100%;
+                border: white solid;
+            }
+            p{
+                margin-top: 0px;
+                border: white solid;
+                width: 100%; /* Ширина 100% от родительского блока */
+                height: auto; /* Высота адаптивная, подстраивается под содержимое */
+                word-wrap: break-word; /* Разбиваем длинные слова для корректного переноса */
+                overflow-wrap: break-word; /* Аналогично для поддержки в разных браузерах */
+                margin: 0;  
+            }
+        }
+        .task_button{
+            border: yellow solid;
+            button{
+                border: 2px #A35709 solid;
+                border-radius: 8px;
+                width: 32px;
+                height: 32px;
+                background: #1B1A17;
+                img{
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+            button:hover{
+                background: #23221F;
+            }
+        }
+    }
+
+}
+

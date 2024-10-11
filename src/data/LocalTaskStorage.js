@@ -16,6 +16,15 @@ class LocalTaskStorage{
         localStorage.setItem(this.storageKey, JSON.stringify(tasks));
         return task;
     }
+
+    deleteTask(taskId) {
+        const tasks = this.getTasks();
+        const updatedTasks = tasks.filter(task => task.id !== taskId);
+ 
+        localStorage.setItem(this.storageKey, JSON.stringify(updatedTasks));
+  
+        return taskId;
+    }
 }
 
 const storage = new LocalTaskStorage();

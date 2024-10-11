@@ -12,6 +12,10 @@ class TaskManager {
     getTasks(){
         return this.repository.getTasks();
     }
+
+    deleteTask(taskId){
+        this.repository.deleteTask(taskId);
+    }
 }
 
 const taskManager = new TaskManager();

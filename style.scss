@@ -1,11 +1,16 @@
+@import './src/presentation/styles/task.scss';
+
+*{
+
+}
 body{
     background: #1B1A17; 
     .input_form{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 50%;
         margin: auto;
+        width: 100%;
         .text_forms{
             display: flex;
             flex-direction: column;
@@ -18,9 +23,11 @@ body{
                 background: #242320;
                 margin-bottom: 8px;
                 border-radius: 4px;
+                color: #F0E3CA;
             }
             input::placeholder{
-                color: #F0E3CA;
+                color: #F0E3CAA3;
+                
             }
             input:last-child {
                 margin: 0px;
@@ -43,6 +50,11 @@ body{
                 font-size: 50px;
                 width: 70px;
                 border-radius: 8px;
+                img{
+                    width: 24px;
+                    height: 24px;
+                    margin-bottom: 5px;
+                }
             }
             button:hover{
                 background: #23221F;
@@ -51,3 +63,54 @@ body{
     }
 }
 
+#todo_container {
+    width: 50%; 
+    margin: 0 auto; 
+    transition: width 0.3s ease-in-out; 
+}
+
+
+@media (min-width: 1025px) {
+    #todo_container {
+        width: 50%; 
+    }
+    .task_text{
+        width: 90%;
+    }
+}
+
+@media (max-width: 1024px) {
+    #todo_container {
+        width: 60%; 
+    }
+    .task_text{
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    #todo_container {
+        width: 70%; 
+    }
+    .task_text{
+        width: 80%;
+    }
+}
+
+@media (max-width: 425px) {
+    #todo_container {
+        width: 80%; 
+    }
+    .task_text{
+        width: 75%;
+    }
+}
+
+@media (max-width: 320px) {
+    #todo_container {
+        width: 100%; 
+    }
+    .task_text{
+        width: 70%;
+    }
+}
