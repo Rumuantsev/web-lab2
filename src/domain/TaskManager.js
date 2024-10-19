@@ -6,7 +6,11 @@ class TaskManager {
     }
 
     addTask(task){
-        this.repository.addTask(task);
+        return this.repository.addTask(task);
+    }
+
+    getTask(taskId){
+        return this.repository.getTask(taskId);
     }
 
     getTasks(){
@@ -15,6 +19,10 @@ class TaskManager {
 
     deleteTask(taskId){
         this.repository.deleteTask(taskId);
+    }
+
+    editTask(taskId, updatedTask){
+        this.repository.editTask(taskId, updatedTask)
     }
 }
 

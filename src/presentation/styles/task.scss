@@ -4,6 +4,15 @@
     width: 100%;
     margin: auto;
     margin-top: 16px;
+    .task_options {
+        margin-top: 10px;
+        text-align: center;
+        button {
+            margin: 5px;
+            padding: 10px;
+        }
+    }
+    
     .task_content{
         display: flex;
         flex-direction: row;

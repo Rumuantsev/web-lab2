@@ -6,6 +6,15 @@
   margin: auto;
   margin-top: 16px;
 }
+.task_container .task_buttons_container {
+  display: none; /* Скрыто по умолчанию */
+  margin-top: 10px;
+  text-align: center;
+}
+.task_container .task_buttons_container button {
+  margin: 5px;
+  padding: 10px;
+}
 .task_container .task_content {
   display: flex;
   flex-direction: row;

@@ -6,28 +6,16 @@ function TodoList(){
     let todoContainer;
 
     const onTaskCreated = (task) => {
-        taskManager.getTasks().forEach(task => {
-            todoContainer.removeChild(document.getElementById(task.id));
-        });
-
-        taskManager.addTask(task);
-        taskManager.getTasks().forEach(task => {
-            todoContainer.appendChild(Task(task.title, task.about, task.id, () => {
-                taskManager.deleteTask(task.id);
-                todoContainer.removeChild(document.getElementById(task.id));
-            }).init());
-        });
+        let taskDomain = taskManager.addTask(task);
+        todoContainer.appendChild(Task(taskDomain.title, taskDomain.about, taskDomain.id).init());
     };
-    
+
     function _render(){     
         const taskInput = TaskInput(onTaskCreated).init();
         todoContainer.appendChild(taskInput);
 
         taskManager.getTasks().forEach(task => {
-            todoContainer.appendChild(Task(task.title, task.about, task.id, () => {
-                taskManager.deleteTask(task.id);
-                todoContainer.removeChild(document.getElementById(task.id));
-            }).init());
+            todoContainer.appendChild(Task(task.title, task.about, task.id));
         });
     }
 
