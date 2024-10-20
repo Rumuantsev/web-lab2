@@ -1,0 +1,38 @@
+.edit_modal{
+    .edit_modal_content{
+        display: flex;
+        flex-direction: column;
+        background: #1B1A17;
+        padding: 18px;
+        margin-top: auto;
+        width: 55%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        input{
+            height: 32px;
+            width: 100%;
+            padding: 7px;
+            border: 1px #A35709 solid;
+            background: #242320;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            color: #F0E3CA;
+        }
+        input::placeholder{
+            color: #F0E3CAA3;    
+        }
+        input:last-child{
+            height: 343px;
+        }
+        input:focus {
+            outline: none;
+            border: 1px #FF8303 solid;
+            background: #2B2A27;
+            color: #F0E3CA;
+        }
+        .edit_modal_buttons{
+            display: flex;
+        }
+        
+    }
+}

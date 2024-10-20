@@ -10,23 +10,24 @@
 <body>
     <div id="todo_container"></div>
 
-    <div id="deleteModal" class="modal">
-        <div class="modal-content">
+    <div id="deleteModal" class="modal delete_modal">
+        <div class="modal_content">
             <p>Delete this task?</p>
-            <div class="modal-buttons">
+            <div class="modal_buttons">
                 <button id="yesButton">Yes</button>
                 <button id="noButton">No</button>
             </div>
         </div>
     </div>
 
-    <div id="editModal" style="display: none;">
-        <div class="modal-content">
-            <span id="closeModal">&times;</span>
-            <h2>Редактировать задачу</h2>
-            <input type="text" id="editTitle" placeholder="Заголовок задачи">
-            <textarea id="editDescription" placeholder="Описание задачи"></textarea>
-            <button id="saveChanges">Сохранить изменения</button>
+    <div id="editModal" class="modal edit_modal">
+        <div class="edit_modal_content">
+            <input type="text" id="editTitle" placeholder="Mini input">
+            <input id="editDescription" placeholder="Max input">
+            <div class="edit_modal_buttons">
+                <button id="saveChanges">Cancel</button>
+                <button id="saveChanges">Save</button>
+            </div>
         </div>
     </div>
 </body>

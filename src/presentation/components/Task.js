@@ -20,99 +20,64 @@ function Task(title, about, id){
             </div>
             <div class="task_options"> 
                 <div class="task_options_buttons"> 
-                    <button id="shareButton">Поделиться</button>
-                    <button id="infoButton">Инфо</button>
-                    <button id="editButton">Редактировать</button>
+                    <button id="shareButton"><img class="share_img" src="/src/presentation/images/ic_share.svg"></button>
+                    <button id="infoButton"><img class="info_img" src="/src/presentation/images/ic_info.svg"></button>
+                    <button id="editButton"><img class="edit_img" src="/src/presentation/images/ic_edit.svg"></button>
                 </div>
             </div>`;    
             
             let deleteButton = container.querySelector('#deleteButton');
 
             deleteButton.addEventListener('click', () => {
-                _showDeleteModal();
+                const deleteModal = document.getElementById('deleteModal');
+                const confirmDelete = document.getElementById('yesButton');
+                const cancelDelete = document.getElementById('noButton');
+            
+                deleteModal.style.display = 'flex';
+          
+                confirmDelete.onclick = function() {
+                    taskManager.deleteTask(id);  
+                    document.getElementById(id).remove();  
+                    deleteModal.style.display = 'none'; 
+                };
+        
+                cancelDelete.onclick = function() {
+                    deleteModal.style.display = 'none'; 
+                };
             });
             
-                    // Обработчик редактирования задачи
-                    const editButton = container.querySelector('#editButton');
-                    editButton.addEventListener('click', () => {
-                        // Открываем модальное окно для редактирования
-                        const editModal = document.getElementById('editModal');
-                        const editTask = taskManager.getTask(id);
-                        document.getElementById('editTitle').value = editTask.title;
-                        document.getElementById('editDescription').value = editTask.about;
-            
-                        // Удаляем предыдущие обработчики "Сохранить изменения"
-                        const saveButton = document.getElementById('saveChanges');
-                        const newSaveButton = saveButton.cloneNode(true);
-                        saveButton.parentNode.replaceChild(newSaveButton, saveButton);
-            
-                        // Добавляем новый обработчик для текущей задачи
-                        newSaveButton.addEventListener('click', () => {
-                            const updatedTitle = document.getElementById('editTitle').value;
-                            const updatedDescription = document.getElementById('editDescription').value;
-            
-                            // Обновляем задачу напрямую через taskManager
-                            taskManager.editTask(id, { title: updatedTitle, about: updatedDescription });
-            
-                            // Обновляем контент DOM элемента
-                            container.querySelector('h3').innerText = updatedTitle;
-                            container.querySelector('p').innerText = updatedDescription;
-            
-                            // Закрываем модальное окно
-                            editModal.style.display = 'none';
-                        });
-            
-                        // Открываем модальное окно
-                        editModal.style.display = 'block';
-                    });
-            return container;
-    }
+            const editButton = container.querySelector('#editButton');
+            editButton.addEventListener('click', () => {
 
-    function _setupListeners(element){
-
-
-        let shareButton = element.querySelector('#shareButton');
-
-        shareButton.addEventListener('click', () => {
-            _showShareModal(onShare)
-        });
-
-        let infoButton = element.querySelector('#infoButton');
-
-        infoButton.addEventListener('click', () => {
-            console.log(title)
-        });
-
-        
-    }
-
-    function _showDeleteModal() {
-        const modal = document.getElementById('deleteModal');
-        const confirmDelete = document.getElementById('yesButton');
-        const cancelDelete = document.getElementById('noButton');
+                const editModal = document.getElementById('editModal');
+                const editTask = taskManager.getTask(id);
+                document.getElementById('editTitle').value = editTask.title;
+                document.getElementById('editDescription').value = editTask.about;
     
-        modal.style.display = 'flex';
-  
-        confirmDelete.onclick = function() {
-            taskManager.deleteTask(id);  
-            document.getElementById(id).remove();  
-            modal.style.display = 'none'; 
-        };
+                const saveButton = document.getElementById('saveChanges');
+                const newSaveButton = saveButton.cloneNode(true);
+                saveButton.parentNode.replaceChild(newSaveButton, saveButton);
+    
 
-        cancelDelete.onclick = function() {
-            modal.style.display = 'none'; 
-        };
-    }
-    function _showShareModal(onShare) {
-        
-    }
-    function _showEditModal(onEdit) {
-       
+                newSaveButton.addEventListener('click', () => {
+                    const updatedTitle = document.getElementById('editTitle').value;
+                    const updatedDescription = document.getElementById('editDescription').value;
+ 
+                    taskManager.editTask(id, { title: updatedTitle, about: updatedDescription });
+    
+                    container.querySelector('h3').innerText = updatedTitle;
+                    container.querySelector('p').innerText = updatedDescription;
+    
+                    editModal.style.display = 'none';
+                });
+    
+                editModal.style.display = 'block';
+            });
+        return container;
     }
 
     function init(){
         let element = _render();
-        _setupListeners(element);
         return element;
     }
 

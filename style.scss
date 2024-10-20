@@ -1,5 +1,5 @@
 @import './src/presentation/styles/task.scss';
-@import './src/presentation/styles/deleteModal.scss';
+@import './src/presentation/styles/modal.scss';
 
 *{
     font-family: Roboto;
@@ -27,8 +27,7 @@ body{
                 color: #F0E3CA;
             }
             input::placeholder{
-                color: #F0E3CAA3;
-                
+                color: #F0E3CAA3;    
             }
             input:last-child {
                 margin: 0px;

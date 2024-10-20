@@ -15,7 +15,7 @@ function TodoList(){
         todoContainer.appendChild(taskInput);
 
         taskManager.getTasks().forEach(task => {
-            todoContainer.appendChild(Task(task.title, task.about, task.id));
+            todoContainer.appendChild(Task(task.title, task.about, task.id).init());
         });
     }
 
