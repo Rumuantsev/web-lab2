@@ -25,56 +25,68 @@ function Task(title, about, id){
                     <button id="editButton"><img class="edit_img" src="/src/presentation/images/ic_edit.svg"></button>
                 </div>
             </div>`;    
-            
-            let deleteButton = container.querySelector('#deleteButton');
+        let deleteButton = container.querySelector('#deleteButton');
 
-            deleteButton.addEventListener('click', () => {
-                const deleteModal = document.getElementById('deleteModal');
-                const confirmDelete = document.getElementById('yesButton');
-                const cancelDelete = document.getElementById('noButton');
-            
-                deleteModal.style.display = 'flex';
-          
-                confirmDelete.onclick = function() {
-                    taskManager.deleteTask(id);  
-                    document.getElementById(id).remove();  
-                    deleteModal.style.display = 'none'; 
-                };
+        deleteButton.addEventListener('click', () => {
+            const deleteModal = document.getElementById('deleteModal');
+            const confirmDelete = document.getElementById('yesButton');
+            const cancelDelete = document.getElementById('noButton');
         
-                cancelDelete.onclick = function() {
-                    deleteModal.style.display = 'none'; 
-                };
-            });
+            deleteModal.style.display = 'flex';
+        
+            confirmDelete.onclick = function() {
+                taskManager.deleteTask(id);  
+                document.getElementById(id).remove();  
+                deleteModal.style.display = 'none'; 
+            };
+    
+            cancelDelete.onclick = function() {
+                deleteModal.style.display = 'none'; 
+            };
+        });
+        
+        const editButton = container.querySelector('#editButton');
+
+        editButton.addEventListener('click', () => {
+
+            const editModal = document.getElementById('editModal');
+            const editTask = taskManager.getTask(id);
+            document.getElementById('editTitle').value = editTask.title;
+            document.getElementById('editDescription').value = editTask.about;
+
+            const saveButton = document.getElementById('save_button');
+            saveButton.removeEventListener('click', saveTask); 
+            saveButton.addEventListener('click', saveTask);
+
             
-            const editButton = container.querySelector('#editButton');
-            editButton.addEventListener('click', () => {
-
-                const editModal = document.getElementById('editModal');
-                const editTask = taskManager.getTask(id);
-                document.getElementById('editTitle').value = editTask.title;
-                document.getElementById('editDescription').value = editTask.about;
-    
-                const saveButton = document.getElementById('saveChanges');
-                const newSaveButton = saveButton.cloneNode(true);
-                saveButton.parentNode.replaceChild(newSaveButton, saveButton);
-    
-
-                newSaveButton.addEventListener('click', () => {
-                    const updatedTitle = document.getElementById('editTitle').value;
-                    const updatedDescription = document.getElementById('editDescription').value;
- 
-                    taskManager.editTask(id, { title: updatedTitle, about: updatedDescription });
-    
-                    container.querySelector('h3').innerText = updatedTitle;
-                    container.querySelector('p').innerText = updatedDescription;
-    
-                    editModal.style.display = 'none';
-                });
-    
-                editModal.style.display = 'block';
+            const cancelButton = document.getElementById('cancel_button');
+            cancelButton.addEventListener('click', () => {
+                editModal.style.display = 'none';
             });
+            editModal.style.display = 'flex';
+        });
+
+        function saveTask() {
+            const updatedTitle = document.getElementById('editTitle').value;
+            const updatedDescription = document.getElementById('editDescription').value;
+            if (updatedTitle && updatedDescription) {
+                taskManager.editTask(id, { title: updatedTitle, about: updatedDescription });
+                container.querySelector('h3').innerText = updatedTitle;
+                container.querySelector('p').innerText = updatedDescription;
+                editModal.style.display = 'none';
+            } else {
+                alert('Поля не должны быть пустыми.');
+            }
+        }
+
+        const shareButton = container.querySelector('#shareButton');
+        const shareModal = document.getElementById('shareModal');
+        shareButton.addEventListener('click', () => {         
+            navigator.clipboard.writeText(taskManager.getTask(id).title + "\n\n" + taskManager.getTask(id).about);
+            shareModal.style.display = 'flex';
+        });
         return container;
-    }
+    } 
 
     function init(){
         let element = _render();

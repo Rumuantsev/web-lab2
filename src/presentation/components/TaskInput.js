@@ -28,8 +28,8 @@ function TaskInput(onTaskCreated){
     }
 
     function _handleAddTask() {
-        const title = titleInput.value.trim();
-        const about = aboutInput.value.trim();
+        const title = titleInput.value;
+        const about = aboutInput.value;
 
         if (title && about) {
             const newTask = { title, about };

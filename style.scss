@@ -99,18 +99,10 @@ body{
 
 @media (max-width: 425px) {
     #todo_container {
-        width: 80%; 
-    }
-    .task_text{
-        width: 75%;
-    }
-}
-
-@media (max-width: 320px) {
-    #todo_container {
         width: 100%; 
     }
     .task_text{
         width: 70%;
     }
 }
+

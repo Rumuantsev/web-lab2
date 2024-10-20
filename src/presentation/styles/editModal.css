@@ -10,7 +10,6 @@
 }
 .edit_modal .edit_modal_content input {
   height: 32px;
-  width: 100%;
   padding: 7px;
   border: 1px #A35709 solid;
   background: #242320;
@@ -24,8 +23,8 @@
 .edit_modal .edit_modal_content input::placeholder {
   color: rgba(240, 227, 202, 0.6392156863);
 }
-.edit_modal .edit_modal_content input:last-child {
-  height: 343px;
+.edit_modal .edit_modal_content #editDescription {
+  height: 150px;
 }
 .edit_modal .edit_modal_content input:focus {
   outline: none;
@@ -35,4 +34,20 @@
 }
 .edit_modal .edit_modal_content .edit_modal_buttons {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit_modal .edit_modal_content .edit_modal_buttons button {
+  padding: 6px 4px;
+  background-color: #242320;
+  border: 1px solid #A35709;
+  border-radius: 4px;
+  color: #D9D9D9;
+  width: 30%;
+}
+.edit_modal .edit_modal_content .edit_modal_buttons button:hover {
+  border: 1px solid #FF8303;
+}
+.edit_modal .edit_modal_content .edit_modal_buttons #cancel_button {
+  margin-right: 12px;
 }/*# sourceMappingURL=editModal.css.map */
