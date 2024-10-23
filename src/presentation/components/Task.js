@@ -36,8 +36,12 @@ function Task(title, about, id){
         
             confirmDelete.onclick = function() {
                 taskManager.deleteTask(id);  
-                document.getElementById(id).remove();  
+                document.getElementById(id).remove(); 
                 deleteModal.style.display = 'none'; 
+                if (taskManager.getTasks().length == 0) {           
+                    const noTasks = document.querySelector('.no_tasks'); 
+                    noTasks.style.display = 'flex'; 
+                }   
             };
     
             cancelDelete.onclick = function() {
@@ -82,8 +86,40 @@ function Task(title, about, id){
         const shareButton = container.querySelector('#shareButton');
         const shareModal = document.getElementById('shareModal');
         shareButton.addEventListener('click', () => {         
-            navigator.clipboard.writeText(taskManager.getTask(id).title + "\n\n" + taskManager.getTask(id).about);
             shareModal.style.display = 'flex';
+
+            const copyButton = document.getElementById('copyButton'); 
+            console.log(copyButton);
+            copyButton.addEventListener('click', () => { 
+                navigator.clipboard.writeText(taskManager.getTask(id).title + "\n\n" + taskManager.getTask(id).about);
+                shareModal.style.display = 'none';
+            }); 
+
+            const vkButton = document.getElementById('vkButton');
+            vkButton.addEventListener('click', () => {  
+                navigator.clipboard.writeText(taskManager.getTask(id).title + "\n\n" + taskManager.getTask(id).about);
+                shareModal.style.display = 'none';
+            });
+            
+            const telegramButton = document.getElementById('telegramButton');
+            telegramButton.addEventListener('click', () => {  
+                navigator.clipboard.writeText(taskManager.getTask(id).title + "\n\n" + taskManager.getTask(id).about);
+                shareModal.style.display = 'none';
+            });
+
+            const whatsappButton = document.getElementById('whatsappButton');
+            whatsappButton.addEventListener('click', () => { 
+                navigator.clipboard.writeText(taskManager.getTask(id).title + "\n\n" + taskManager.getTask(id).about);
+                shareModal.style.display = 'none';
+            }); 
+
+            const facebookButton = document.getElementById('facebookButton');
+            facebookButton.addEventListener('click', () => { 
+                navigator.clipboard.writeText(taskManager.getTask(id).title + "\n\n" + taskManager.getTask(id).about);
+                shareModal.style.display = 'none';
+            }); 
+            
+            
         });
         return container;
     } 

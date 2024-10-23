@@ -32,6 +32,28 @@
   background: #2B2A27;
   color: #F0E3CA;
 }
+.edit_modal .edit_modal_content textarea {
+  height: 150px;
+  resize: none;
+  padding: 7px;
+  border: 1px #A35709 solid;
+  background: #242320;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  color: #F0E3CA;
+}
+.edit_modal .edit_modal_content textarea::-moz-placeholder {
+  color: rgba(240, 227, 202, 0.6392156863);
+}
+.edit_modal .edit_modal_content textarea::placeholder {
+  color: rgba(240, 227, 202, 0.6392156863);
+}
+.edit_modal .edit_modal_content textarea:focus {
+  outline: none;
+  border: 1px #FF8303 solid;
+  background: #2B2A27;
+  color: #F0E3CA;
+}
 .edit_modal .edit_modal_content .edit_modal_buttons {
   display: flex;
   justify-content: center;

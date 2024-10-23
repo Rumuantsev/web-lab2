@@ -30,4 +30,19 @@
 }
 .share_modal .share_modal_content .share_modal_buttons button:hover {
   border: 1px solid #FF8303;
+}
+
+@media (max-width: 768px) {
+  .share_modal .share_modal_content {
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 425px) {
+  .share_modal .share_modal_content {
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }/*# sourceMappingURL=shareModal.css.map */

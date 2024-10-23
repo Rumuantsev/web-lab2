@@ -5,7 +5,7 @@
     font-family: Roboto;
 }
 body{
-    background: #1B1A17; 
+    background: #1B1A17; ;
     .input_form{
         display: flex;
         justify-content: space-between;
@@ -63,6 +63,24 @@ body{
     }
 }
 
+.no_tasks{
+    display: none;
+    flex-direction: column;
+    margin: auto; 
+    margin-top: 10%;
+    width: 30%; 
+    height: 60px;
+    justify-content: center; 
+    align-items: center;
+    
+    p{
+        margin: auto;
+        font-family: Inter;
+        font-size: 24px;
+        color: white;
+    }
+}
+
 #todo_container {
     width: 50%; 
     margin: 0 auto; 
@@ -92,7 +110,7 @@ body{
     #todo_container {
         width: 70%; 
     }
-    .task_text{
+    .task_text {
         width: 80%;
     }
 }

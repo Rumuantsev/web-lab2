@@ -4,9 +4,12 @@ import TaskInput from "./TaskInput.js";
 
 function TodoList(){
     let todoContainer;
+    let emptyMessage;
 
     const onTaskCreated = (task) => {
         let taskDomain = taskManager.addTask(task);
+        const noTasks = document.querySelector('.no_tasks'); 
+        noTasks.style.display = 'none';    
         todoContainer.appendChild(Task(taskDomain.title, taskDomain.about, taskDomain.id).init());
     };
 
@@ -14,9 +17,15 @@ function TodoList(){
         const taskInput = TaskInput(onTaskCreated).init();
         todoContainer.appendChild(taskInput);
 
-        taskManager.getTasks().forEach(task => {
-            todoContainer.appendChild(Task(task.title, task.about, task.id).init());
-        });
+        const tasks = taskManager.getTasks();
+         if (tasks.length != 0) {           
+             tasks.forEach(task => {
+                todoContainer.appendChild(Task(task.title, task.about, task.id).init());
+            });
+        } else {
+            const noTasks = document.querySelector('.no_tasks'); 
+            noTasks.style.display = 'flex';                    
+        }
     }
 
     function _init(_root){
