@@ -1,7 +1,5 @@
 RU:
 
-Требования
-
 Для запуска проекта вам потребуется Node.js и npm (Node Package Manager)
 
 Установите их, если еще не сделали этого: https://nodejs.org/en
@@ -12,21 +10,32 @@ RU:
 
 2. Установите http-server: npm install -g http-server
    
-3. Запуск проекта
-   
-Перейдите в директорию с установленным проектом через терминал
+3. Перейдите в директорию с установленным проектом через терминал
 
-Запустите http-server: npx http-server -a 127.0.0.1 -p 8080
+4. Запустите http-server: npx http-server -a 127.0.0.1 -p 8080
+
+Или
+
+Откройте проект через VS Code и запустите через плагин Live Server 
+
 
 
 EN:
-To launch my project, you need to:
-Install node: https://nodejs.org/en
-Open a terminal
-Install the http server with the command: npm install -g http server 
-Go to the project directory in the terminal
-Write the command: npx http-server 127.0.0.1 -p 8080 to start the server
 
-Or:
+For reference, if you want to try Node.js and npm (Node Package Manager)
 
-Open the project via VS Code and use the Live Server plugin to launch the project
+Calm me down if you didn't share this: https://nodejs.org/en
+
+Installation and launch
+
+1. Download or clone the repository.
+
+2. Install the http server: npm install-g http server
+   
+3. Go to the directory with the installed project via the terminal
+
+4. Install the http server: NPS http server 127.0.0.1-p 8080
+
+Or
+
+Open the project via VS Code and run it through the Live Server plugin
