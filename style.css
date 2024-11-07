@@ -27,6 +27,7 @@
   color: #F0E3CA;
   font-size: 22px;
   width: 100%;
+  overflow-wrap: break-word;
   margin: 0px;
 }
 .task_container .task_content .task_text p {

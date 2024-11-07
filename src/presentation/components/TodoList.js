@@ -4,7 +4,7 @@ import TaskInput from "./TaskInput.js";
 
 function TodoList(){
     let todoContainer;
-    let emptyMessage;
+
 
     const onTaskCreated = (task) => {
         let taskDomain = taskManager.addTask(task);
